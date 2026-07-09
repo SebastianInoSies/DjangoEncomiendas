@@ -101,6 +101,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_AGE = 60 * 60 * 8
 SESSION_COOKIE_NAME = 'encomiendas_session'
+<<<<<<< HEAD
 
 # ── Django REST Framework ─────────────────────────────────────────
 REST_FRAMEWORK = {
@@ -184,3 +185,5 @@ CACHES = {
     }
 }
 CACHE_TTL = 60 * 15
+=======
+>>>>>>> eab8f92dc26ba81bbecc5f4eb24bd3a1d8d61c11

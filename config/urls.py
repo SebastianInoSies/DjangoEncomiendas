@@ -11,11 +11,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('envios.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+
     path('api/<version>/', include('api.urls')),
 ]
 
 if settings.DEBUG:
     from silk import urls as silk_urls
     urlpatterns += [path('silk/', include(silk_urls, namespace='silk'))]
+
+
+
+if settings.DEBUG:
+
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
