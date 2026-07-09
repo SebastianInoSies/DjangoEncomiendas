@@ -11,6 +11,8 @@ class EstadoEnvio(models.TextChoices):
     ENTREGADO = 'EN', 'Entregado'
     DEVUELTO = 'DV', 'Devuelto'
 
+
+
 class TipoDocumento(models.TextChoices):
     DNI = 'DNI', 'DNI'
     RUC = 'RUC', 'RUC'
