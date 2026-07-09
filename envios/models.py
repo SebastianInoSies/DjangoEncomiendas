@@ -105,6 +105,16 @@ class Encomienda(models.Model):
         return timezone.now().date() > self.fecha_entrega_est
 
     @property
+    def estado_bg(self):
+        return {
+            'PE': 'secondary',
+            'TR': 'primary',
+            'DE': 'warning',
+            'EN': 'success',
+            'DV': 'danger',
+        }.get(self.estado, 'secondary')
+
+    @property
     def descripcion_corta(self):
         if len(self.descripcion) > 50:
             return self.descripcion[:50] + '...'
@@ -208,6 +218,16 @@ class HistorialEstado(models.Model):
         related_name='cambios_estado'
     )
     fecha_cambio = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def estado_nuevo_bg(self):
+        return {
+            'PE': 'secondary',
+            'TR': 'primary',
+            'DE': 'warning',
+            'EN': 'success',
+            'DV': 'danger',
+        }.get(self.estado_nuevo, 'secondary')
 
     def __str__(self):
         return f'{self.encomienda.codigo}: {self.estado_anterior}→{self.estado_nuevo}'
